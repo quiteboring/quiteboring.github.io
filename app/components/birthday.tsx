@@ -23,7 +23,7 @@ export function Birthday() {
   }, []);
 
   return (
-    <div className="col-span-1 flex justify-center rounded-[10px] bg-black p-3 text-left ring-1 ring-white/10">
+    <div className="col-span-1 flex justify-center rounded-[10px] bg-black p-3 text-left ring-2 ring-white/10">
       <div>
         <p className="text-xs text-white/60">Birthday in</p>
         <p className="text-lg font-semibold text-white">{days} days</p>

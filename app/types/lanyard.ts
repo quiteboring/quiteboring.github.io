@@ -1,4 +1,13 @@
-export type LanyardData = {
+export type LanyardError = {
+  success: false;
+  error: {
+    code: string;
+    message: string;
+  };
+};
+
+export type LanyardSuccess = {
+  success: true;
   data: {
     discord_user: {
       id: string;
@@ -10,3 +19,5 @@ export type LanyardData = {
     discord_status: "online" | "idle" | "dnd" | "offline";
   };
 };
+
+export type LanyardData = LanyardSuccess | LanyardError;
