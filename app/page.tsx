@@ -1,101 +1,134 @@
-import Image from "next/image";
+"use client";
+
+import { useEffect, useMemo, useState } from "react";
+import { LanyardData } from "./types/lanyard";
+import { Grid } from "./components/grid";
+import { Socials } from "./components/socials";
+import { Birthday } from "./components/birthday";
+
+const DISCORD_ID = "1367543367277219840";
+
+const statusColors: Record<LanyardData["data"]["discord_status"], string> = {
+  online: "#23a55a",
+  idle: "#f0b232",
+  dnd: "#f23f43",
+  offline: "#80848e",
+};
+
+function calculateAge(birthDate: string) {
+  const today = new Date();
+  const birth = new Date(birthDate);
+  let age = today.getFullYear() - birth.getFullYear();
+  const m = today.getMonth() - birth.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) {
+    age--;
+  }
+  return age;
+}
+
+function useLanyard(userId: string) {
+  const [presence, setPresence] = useState<LanyardData["data"] | null>(null);
+
+  useEffect(() => {
+    async function getLanyardData() {
+      try {
+        const res = await fetch(`https://api.lanyard.rest/v1/users/${userId}`, {
+          cache: "no-store",
+        });
+        if (res.ok) {
+          const lanyard: LanyardData = await res.json();
+          setPresence(lanyard.data);
+        }
+      } catch (error) {
+        console.error("Failed to fetch Lanyard data:", error);
+      }
+    }
+
+    getLanyardData();
+  }, [userId]);
+
+  return presence;
+}
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/nextjs-github-pages/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const presence = useLanyard(DISCORD_ID);
+  const age = calculateAge("2009-01-05");
+  const [time, setTime] = useState("");
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/nextjs-github-pages/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTime(
+        new Date().toLocaleTimeString("en-US", {
+          timeZone: "America/New_York",
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: true,
+        }),
+      );
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const avatarUrl = useMemo(() => {
+    const user = presence?.discord_user;
+    if (!user) return "";
+    
+    if (user.avatar) {
+      return `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=128`;
+    }
+
+    const defaultAvatarIndex = user.discriminator
+      ? parseInt(user.discriminator) % 5
+      : 0;
+    
+      return `https://cdn.discordapp.com/embed/avatars/${defaultAvatarIndex}.png`;
+  }, [presence]);
+
+  const status = presence?.discord_status ?? "offline";
+  const statusColor = statusColors[status];
+
+  return (
+    <main className="relative flex min-h-screen items-center justify-center p-6">
+      <Grid />
+      <div className="relative z-10 flex w-full max-w-sm flex-col gap-2">
+        <div className="rounded-[10px] bg-black ring-1 ring-white/10">
+          <div className="flex items-start gap-4 p-6">
+            <div className="relative h-20 w-20 flex-shrink-0">
+              {avatarUrl && (
+                <img
+                  src={avatarUrl}
+                  alt="Discord avatar"
+                  className="h-full w-full rounded-[10px] object-cover"
+                />
+              )}
+              <span
+                title={status}
+                className="absolute -bottom-1 -right-1 block h-5 w-5 rounded-full border-3 border-black"
+                style={{ backgroundColor: statusColor }}
+              />
+            </div>
+
+            <div className="text-left pt-1">
+              <h1 className="text-xl font-semibold text-white mb-0">Nathan</h1>
+              <div className="mt-1 h-1 w-10 bg-[#4682b4]" />
+              <p className="text-sm text-white/60 mt-2">
+                A {age} year old developer.
+              </p>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/nextjs-github-pages/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/nextjs-github-pages/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/nextjs-github-pages/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        <div className="grid grid-cols-3 gap-2">
+          <div className="col-span-1 flex justify-center rounded-[10px] bg-black p-3 text-left ring-1 ring-white/10">
+            <div>
+              <p className="text-xs text-white/60">It is currently</p>
+              <p className="text-lg font-semibold text-white">{time}</p>
+            </div>
+          </div>
+          <Birthday />
+          <Socials discordId={DISCORD_ID} />
+        </div>
+      </div>
+    </main>
   );
 }
