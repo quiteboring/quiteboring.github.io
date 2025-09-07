@@ -1,6 +1,7 @@
 import { LanyardSuccess } from "../types/lanyard";
 import { RiJavaLine } from "react-icons/ri";
 import {
+  TbBrandCpp,
   TbBrandJavascript,
   TbBrandKotlin,
   TbBrandMongodb,
@@ -27,6 +28,7 @@ export const projects = [
 export const tools = [
   { icon: TbBrandKotlin, color: "#7f52ff" },
   { icon: RiJavaLine, color: "#f89820" },
+  { icon: TbBrandCpp, color: "#8c20f8ff" },
   { icon: TbBrandMongodb, color: "#47a248" },
   { icon: TbBrandNextjs, color: "#FFFFFF" },
   { icon: TbBrandReact, color: "#61DAFB" },
