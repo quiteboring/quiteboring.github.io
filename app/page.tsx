@@ -55,9 +55,16 @@ export default function Home() {
   const presence = useLanyard(DISCORD_ID);
   const age = calculateAge("2009-01-05");
   const [time, setTime] = useState("");
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    const timer = setInterval(() => {
+    if (presence) {
+      setIsLoaded(true);
+    }
+  }, [presence]);
+
+  useEffect(() => {
+    const updateTime = () =>
       setTime(
         new Date().toLocaleTimeString("en-US", {
           timeZone: "America/New_York",
@@ -66,7 +73,9 @@ export default function Home() {
           hour12: true,
         }),
       );
-    }, 1000);
+
+    updateTime();
+    const timer = setInterval(updateTime, 1000);
 
     return () => clearInterval(timer);
   }, []);
@@ -93,7 +102,11 @@ export default function Home() {
     <main className="relative flex min-h-screen items-center justify-center p-6">
       <title>QuiteBoring</title>
       <Grid />
-      <div className="relative z-10 flex w-full max-w-sm flex-col gap-2">
+      <div
+        className={`relative z-10 flex w-full max-w-sm flex-col gap-2 transition-opacity duration-500 ${
+          isLoaded ? "opacity-100" : "opacity-0"
+        }`}
+      >
         <div className="rounded-[10px] bg-black ring-1 ring-white/10">
           <div className="flex items-start gap-4 p-6">
             <div className="relative h-20 w-20 flex-shrink-0">
