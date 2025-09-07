@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 function calculateDaysUntilBirthday(month: number, day: number) {
   const today = new Date();
   const currentYear = today.getFullYear();
-  let nextBirthday = new Date(currentYear, month - 1, day);
+  const nextBirthday = new Date(currentYear, month - 1, day);
 
   if (today.getTime() > nextBirthday.getTime()) {
     nextBirthday.setFullYear(currentYear + 1);

@@ -5,6 +5,7 @@ import { LanyardData } from "./types/lanyard";
 import { Grid } from "./components/grid";
 import { Socials } from "./components/socials";
 import { Birthday } from "./components/birthday";
+import Image from "next/image";
 
 const DISCORD_ID = "1367543367277219840";
 
@@ -90,16 +91,20 @@ export default function Home() {
 
   return (
     <main className="relative flex min-h-screen items-center justify-center p-6">
+      <title>QuiteBoring</title>
       <Grid />
       <div className="relative z-10 flex w-full max-w-sm flex-col gap-2">
         <div className="rounded-[10px] bg-black ring-1 ring-white/10">
           <div className="flex items-start gap-4 p-6">
             <div className="relative h-20 w-20 flex-shrink-0">
               {avatarUrl && (
-                <img
+                <Image
                   src={avatarUrl}
                   alt="Discord avatar"
                   className="h-full w-full rounded-[10px] object-cover"
+                  fill
+                  sizes="80px"
+                  priority
                 />
               )}
               <span
