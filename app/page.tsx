@@ -98,6 +98,7 @@ export default function Home() {
   return (
     <main className="relative flex min-h-screen items-center justify-center p-6">
       <title>QuiteBoring</title>
+      <link rel="icon" href="/main_favicon.png" />
       <Grid />
       <div
         className={`relative z-10 flex w-full max-w-4xl flex-col gap-2 transition-opacity duration-500 lg:flex-row lg:items-stretch ${
