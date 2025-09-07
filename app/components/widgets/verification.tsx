@@ -29,7 +29,11 @@ export function Verification({ discordId }: { discordId: string }) {
           <input
             type="text"
             value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
+            onChange={(e) => {
+              if (/^[0-9]*$/.test(e.target.value)) {
+                setInputValue(e.target.value);
+              }
+            }}
             placeholder={discordId}
             className="w-full rounded-md bg-white/10 px-2 py-1 text-sm text-white placeholder-white/30 ring-1 ring-white/20 focus:outline-none focus:ring-2 focus:ring-[#4682b4]"
           />
@@ -44,7 +48,3 @@ export function Verification({ discordId }: { discordId: string }) {
     </div>
   );
 }
-
-
-
-

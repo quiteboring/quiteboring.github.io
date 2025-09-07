@@ -3,21 +3,13 @@
 import { useEffect, useMemo, useState } from "react";
 import { LanyardData, LanyardSuccess } from "./types/lanyard";
 import { Grid } from "./components/grid";
-import { Socials } from "./components/socials";
-import { Birthday } from "./components/birthday";
-import { Tools } from "./components/tools";
-import { Verification } from "./components/verification";
-import { Projects } from "./components/projects";
+import { Socials } from "./components/widgets/socials";
+import { Birthday } from "./components/widgets/birthday";
+import { Tools } from "./components/widgets/tools";
+import { Verification } from "./components/widgets/verification";
+import { Projects } from "./components/widgets/projects";
+import { discordId, statusColors } from "./util/constants";
 import Image from "next/image";
-
-const DISCORD_ID = "1367543367277219840";
-
-const statusColors: Record<LanyardSuccess["data"]["discord_status"], string> = {
-  online: "#23a55a",
-  idle: "#f0b232",
-  dnd: "#f23f43",
-  offline: "#80848e",
-};
 
 function calculateAge(birthDate: string) {
   const today = new Date();
@@ -57,7 +49,7 @@ function useLanyard(userId: string) {
 }
 
 export default function Home() {
-  const presence = useLanyard(DISCORD_ID);
+  const presence = useLanyard(discordId);
   const age = calculateAge("2009-01-05");
   const [time, setTime] = useState("");
   const [isLoaded, setIsLoaded] = useState(false);
@@ -88,7 +80,7 @@ export default function Home() {
   const avatarUrl = useMemo(() => {
     const user = presence?.discord_user;
     if (!user) return "";
-    
+
     if (user.avatar) {
       return `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=128`;
     }
@@ -96,8 +88,8 @@ export default function Home() {
     const defaultAvatarIndex = user.discriminator
       ? parseInt(user.discriminator) % 5
       : 0;
-    
-      return `https://cdn.discordapp.com/embed/avatars/${defaultAvatarIndex}.png`;
+
+    return `https://cdn.discordapp.com/embed/avatars/${defaultAvatarIndex}.png`;
   }, [presence]);
 
   const status = presence?.discord_status ?? "offline";
@@ -152,9 +144,9 @@ export default function Home() {
               </div>
             </div>
             <Birthday />
-            <Socials discordId={DISCORD_ID} />
+            <Socials discordId={discordId} />
             <Tools />
-            <Verification discordId={DISCORD_ID} />
+            <Verification discordId={discordId} />
           </div>
         </div>
         <div className="w-full lg:w-1/2 lg:min-h-0">
