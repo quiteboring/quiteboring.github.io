@@ -11,20 +11,6 @@ import {
   TbBrandTypescript,
 } from "react-icons/tb";
 
-export const projects = [
-  {
-    name: "Cobalt",
-    description: "A Hypixel Skyblock QOL mod.",
-    tech: ["Kotlin", "Java"],
-    link: "https://discord.gg/cobaltmod",
-  },
-  {
-    name: "Scatter",
-    description: "A native obfuscator.",
-    tech: ["Kotlin", "Java", "C++"],
-  },
-];
-
 export const tools = [
   { icon: TbBrandKotlin, color: "#7f52ff" },
   { icon: RiJavaLine, color: "#f89820" },
@@ -35,6 +21,20 @@ export const tools = [
   { icon: TbBrandTailwind, color: "#06B6D4" },
   { icon: TbBrandJavascript, color: "#f7df1e" },
   { icon: TbBrandTypescript, color: "#3178c6" },
+];
+
+export const projects = [
+  {
+    name: "Cobalt",
+    description: "A Hypixel Skyblock QOL mod.",
+    tech: [tools[0], tools[1]],
+    link: "https://discord.gg/cobaltmod",
+  },
+  {
+    name: "Scatter",
+    description: "A native obfuscator.",
+    tech: [tools[0], tools[1], tools[2]],
+  },
 ];
 
 export const statusColors: Record<

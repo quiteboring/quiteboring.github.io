@@ -8,7 +8,7 @@ export function Projects() {
         <h2 className="text-xl font-semibold text-white">Projects</h2>
         <div className="mt-1 h-1 w-10 bg-[#4682b4]" />
       </div>
-      <div className="mt-4">
+      <div className="mt-4 flex h-full flex-col">
         <div className="flex flex-col">
           {projects.map((project, index) => (
             <div key={project.name}>
@@ -31,15 +31,11 @@ export function Projects() {
                 )}
               </div>
               <p className="text-sm text-white/60">{project.description}</p>
-              <div className="mt-2 flex flex-wrap gap-2">
-                {project.tech.map((tech) => (
-                  <span
-                    key={tech}
-                    className="rounded-[5px] bg-white/10 px-2 py-1 text-xs text-white"
-                  >
-                    {tech}
-                  </span>
-                ))}
+              <div className="mt-2 flex flex-wrap items-center gap-2">
+                {project.tech.map((tech, i) => {
+                  const Icon = tech.icon;
+                  return <Icon key={i} size={15} color={tech.color} />;
+                })}
               </div>
             </div>
           ))}
