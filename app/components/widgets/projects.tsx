@@ -1,5 +1,5 @@
 import { TbWorld } from "react-icons/tb";
-import { projects } from "../../util/constants";
+import { projects } from "../../utils/constants";
 
 export function Projects() {
   return (

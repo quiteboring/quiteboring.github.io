@@ -8,7 +8,7 @@ import { Birthday } from "./components/widgets/birthday";
 import { Tools } from "./components/widgets/tools";
 import { Verification } from "./components/widgets/verification";
 import { Projects } from "./components/widgets/projects";
-import { discordId, statusColors } from "./util/constants";
+import { discordId, statusColors } from "./utils/constants";
 import Image from "next/image";
 
 function calculateAge(birthDate: string) {
@@ -98,7 +98,6 @@ export default function Home() {
   return (
     <main className="relative flex min-h-screen items-center justify-center p-6">
       <title>QuiteBoring</title>
-      <link rel="icon" href="/main_favicon.png" />
       <Grid />
       <div
         className={`relative z-10 flex w-full max-w-4xl flex-col gap-2 transition-opacity duration-500 lg:flex-row lg:items-stretch ${
