@@ -47,4 +47,4 @@ export const statusColors: Record<
   offline: "#80848e",
 };
 
-export const discordId = "1367543367277219840";
+export const discordIds = ["1367543367277219840", "1428191391262969940"];
