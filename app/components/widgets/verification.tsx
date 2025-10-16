@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-export function Verification({ discordId }: { discordId: string }) {
+export function Verification({ discordIds }: { discordId: string }) {
   const [inputValue, setInputValue] = useState("");
   const [status, setStatus] = useState<"verified" | "impersonator" | null>(
     null,
@@ -14,7 +14,7 @@ export function Verification({ discordId }: { discordId: string }) {
       return;
     }
 
-    if (inputValue === discordId) {
+    if (discordIds.includes(inputValue)) {
       setStatus("verified");
     } else {
       setStatus("impersonator");
@@ -34,7 +34,7 @@ export function Verification({ discordId }: { discordId: string }) {
                 setInputValue(e.target.value);
               }
             }}
-            placeholder={discordId}
+            placeholder={discordIds[0]}
             className="w-full rounded-md bg-white/10 px-2 py-1 text-sm text-white placeholder-white/30 ring-1 ring-white/20 focus:outline-none focus:ring-2 focus:ring-[#4682b4]"
           />
         </div>
