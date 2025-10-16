@@ -8,7 +8,7 @@ import { Birthday } from "./components/widgets/birthday";
 import { Tools } from "./components/widgets/tools";
 import { Verification } from "./components/widgets/verification";
 import { Projects } from "./components/widgets/projects";
-import { discordId, statusColors } from "./utils/constants";
+import { discordIds, statusColors } from "./utils/constants";
 import Image from "next/image";
 
 function calculateAge(birthDate: string) {
@@ -144,9 +144,9 @@ export default function Home() {
               </div>
             </div>
             <Birthday />
-            <Socials discordId={discordId} />
+            <Socials discordId={discordIds[0]} />
             <Tools />
-            <Verification discordId={discordId} />
+            <Verification discordIds={discordIds} />
           </div>
         </div>
         <div className="w-full lg:w-1/2 lg:min-h-0">
