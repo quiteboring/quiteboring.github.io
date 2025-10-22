@@ -19,7 +19,7 @@ export function Verification({ discordIds }: { discordIds: string[] }) {
     } else {
       setStatus("impersonator");
     }
-  }, [inputValue, discordId]);
+  }, [inputValue, discordIds]);
 
   return (
     <div className="col-span-3 rounded-[10px] bg-black p-3 text-left ring-2 ring-white/10">
