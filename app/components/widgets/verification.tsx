@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-export function Verification({ discordIds }: { discordId: string }) {
+export function Verification({ discordIds }: { discordIds: string[] }) {
   const [inputValue, setInputValue] = useState("");
   const [status, setStatus] = useState<"verified" | "impersonator" | null>(
     null,
