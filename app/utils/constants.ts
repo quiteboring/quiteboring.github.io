@@ -28,12 +28,12 @@ export const projects = [
     name: "Cobalt",
     description: "A Hypixel Skyblock QOL mod.",
     tech: [tools[0], tools[1]],
-    link: "https://discord.gg/cobaltmod",
+    link: "https://cobalt.quiteboring.dev/",
   },
   {
-    name: "Scatter",
-    description: "A native obfuscator.",
-    tech: [tools[0], tools[1], tools[2]],
+    name: "Listing Bot",
+    description: "A simple listing discord bot.",
+    tech: [tools[7]],
   },
 ];
 
