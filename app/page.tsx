@@ -49,7 +49,7 @@ function useLanyard(userId: string) {
 }
 
 export default function Home() {
-  const presence = useLanyard(discordId);
+  const presence = useLanyard(discordIds[0]);
   const age = calculateAge("2009-01-05");
   const [time, setTime] = useState("");
   const [isLoaded, setIsLoaded] = useState(false);
