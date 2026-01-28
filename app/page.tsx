@@ -6,7 +6,7 @@ import { projects } from "@/lib/constants";
 export default function Home() {
   return (
     <main className="min-h-screen p-8 max-w-4xl mx-auto flex flex-col justify-center">
-      <div className="w-full bg-neutral-900 rounded-lg p-5 mb-8 relative">
+      <div className="w-full bg-neutral-900 border border-neutral-700 rounded-lg p-5 mb-8 relative">
         <div className="absolute top-5 right-5 flex gap-3">
           <a href="https://discord.com/users/1441859003708866601" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-white transition-colors">
             <FaDiscord className="w-5 h-5" />
