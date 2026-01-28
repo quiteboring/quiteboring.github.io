@@ -41,9 +41,8 @@ export default function Home() {
           />
 
           <div>
-            <h1 className="flex flex-wrap items-center gap-x-2 text-2xl font-bold">
+            <h1 className="text-2xl font-bold">
               Nathan
-              <span className="text-sm text-neutral-600">(quiteboring)</span>
             </h1>
             <div className="mt-2 h-0.5 bg-gradient-to-r from-zinc-800 to-transparent"></div>
             <p className="mt-2 text-sm text-neutral-400">a passionate 17 y/o developer</p>
