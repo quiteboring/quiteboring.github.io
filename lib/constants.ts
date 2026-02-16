@@ -67,9 +67,9 @@ export const projects: Project[] = [
     url: "https://cobalt.quiteboring.dev",
   },
   {
-    name: "Music Player",
-    description: "a simple music player app for ios devices",
-    url: "https://github.com/quiteboring/music-player",
+    name: "Listing Bot",
+    description: "a listing bot for hypixel skyblock shops",
+    url: "https://github.com/quiteboring/ListingBot",
   },
   {
     name: "Website",
