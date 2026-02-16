@@ -12,15 +12,14 @@ export default function DiscordVerification() {
   const isNoMatch = trimmed && !discordIds.includes(trimmed);
 
   return (
-    <div className="flex flex-col gap-4 rounded-lg border border-neutral-700 bg-neutral-900 p-5">
+    <div>
       <div>
-        <label className="mb-2 text-xs text-neutral-500 block">Enter Discord ID to Verify</label>
         <input
           type="text"
           value={inputId}
           onChange={(e) => setInputId(e.target.value)}
           placeholder="Enter Discord User ID..."
-          className="w-full rounded-md border border-neutral-700 bg-neutral-800 px-3 py-2 text-sm text-neutral-300 placeholder-neutral-500 outline-none focus:border-neutral-600 transition-colors"
+          className="w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-neutral-300 placeholder-neutral-500 outline-none focus:border-neutral-600 transition-colors"
         />
       </div>
 
