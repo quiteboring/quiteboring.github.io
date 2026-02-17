@@ -24,14 +24,14 @@ export default function DiscordVerification() {
       </div>
 
       {isMatch && (
-        <div className="flex items-center gap-2 rounded-md border border-green-700 bg-green-900/30 px-3 py-2 text-green-400">
+        <div className="flex mt-3 items-center gap-2 rounded-md border border-green-700 bg-green-900/30 px-3 py-2 text-green-400">
           <FaCheckCircle className="h-4 w-4" />
           <span className="text-sm">It is me!</span>
         </div>
       )}
 
       {isNoMatch && (
-        <div className="flex items-center gap-2 rounded-md border border-red-700 bg-red-900/30 px-3 py-2 text-red-400">
+        <div className="flex mt-3 items-center gap-2 rounded-md border border-red-700 bg-red-900/30 px-3 py-2 text-red-400">
           <FaTimesCircle className="h-4 w-4" />
           <span className="text-sm">Not me!</span>
         </div>
