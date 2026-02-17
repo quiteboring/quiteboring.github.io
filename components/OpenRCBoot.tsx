@@ -42,7 +42,7 @@ export default function OpenRCBoot({ onComplete }: OpenRCBootProps) {
   }, [currentService, onComplete]);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-neutral-950 font-mono text-sm">
+    <div className="fixed inset-0 z-50 flex items-center justify-center font-mono text-sm">
       <div className="w-full max-w-2xl p-8">
         <div className="mb-6 text-slate-500">
           <p className="mt-2 text-neutral-500">nathan&apos;s website v2.0.0</p>
