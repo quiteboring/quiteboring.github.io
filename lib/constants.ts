@@ -72,6 +72,15 @@ export const projects: Project[] = [
     url: "https://github.com/quiteboring/ListingBot",
   },
   {
+    name: "SlayerXPOverlayFabric",
+    description: "fabric version of SlayerXPOverlay",
+    url: "https://github.com/oblongboot/SlayerXPOverlayFabric",
+  },
+  {
+    name: "Swift",
+    description: "human-oriented minecraft pathfinder",
+  },
+  {
     name: "Website",
     description: "my personal website built w/ nextjs",
   },
