@@ -27,7 +27,7 @@ export default function Grid() {
           transform: "translate(-50%, -50%)",
           backgroundPosition: `${-mousePosition.x}px ${-mousePosition.y}px`,
           backgroundImage:
-            "linear-gradient(to right, #1d4260 1px, transparent 1px), linear-gradient(to bottom, #1d4260 1px, transparent 1px)",
+            "linear-gradient(to right, #64748B 1px, transparent 1px), linear-gradient(to bottom, #64748B 1px, transparent 1px)",
           backgroundSize: "50px 50px",
           maskImage: "radial-gradient(farthest-side, black, transparent)",
         }}
