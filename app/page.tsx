@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { FaDiscord, FaGithub } from "react-icons/fa";
 import { projects, tools } from "@/lib/constants";
 import { getAge, getTimeUntilBirthday } from "@/lib/utils";
@@ -5,12 +8,21 @@ import Image from "next/image";
 import ProjectCard from "@/components/ProjectCard";
 import DiscordVerification from "@/components/DiscordVerification";
 import Grid from "@/components/Grid";
+import OpenRCBoot from "@/components/OpenRCBoot";
 
 export default function Home() {
+  const [booted, setBooted] = useState(false);
+
   return (
-    <main className="mx-auto flex min-h-screen max-w-6xl flex-col justify-center p-8">
-      <title>Home</title>
-      <Grid />
+    <>
+      {!booted && <OpenRCBoot onComplete={() => setBooted(true)} />}
+      <main
+        className={`mx-auto flex min-h-screen max-w-6xl flex-col justify-center p-8 transition-opacity duration-500 ${
+          booted ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        <title>Home</title>
+        <Grid />
 
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_500px] gap-5">
         <div className="flex flex-col gap-5">
@@ -109,5 +121,6 @@ export default function Home() {
         </div>
       </div>
     </main>
+    </>
   );
 }
