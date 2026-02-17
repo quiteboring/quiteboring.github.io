@@ -1,5 +1,6 @@
 import { FaDiscord, FaGithub } from "react-icons/fa";
 import { projects, tools } from "@/lib/constants";
+import { getAge, getTimeUntilBirthday } from "@/lib/utils";
 import Image from "next/image";
 import ProjectCard from "@/components/ProjectCard";
 import DiscordVerification from "@/components/DiscordVerification";
@@ -30,7 +31,12 @@ export default function Home() {
                     Nathan
                   </h1>
                   <div className="mt-2 h-0.5 bg-gradient-to-r from-zinc-800 to-transparent"></div>
-                  <p className="mt-2 text-sm text-neutral-400">a 17 y/o developer</p>
+                  <p className="mt-2 text-sm text-neutral-400">
+                    a {getAge(new Date(2009, 0, 5))} y/o developer
+                  </p>
+                  <p className="text-sm text-neutral-400">
+                    {getTimeUntilBirthday(new Date(2009, 0, 5))}
+                  </p>
                 </div>
               </div>
             </div>
