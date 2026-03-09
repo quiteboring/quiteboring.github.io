@@ -31,7 +31,7 @@ export default function Home() {
             <div className="relative w-full rounded-lg border border-neutral-700 bg-neutral-900 p-5">
               <div className="flex items-start gap-4">
                 <Image
-                  src="/profile.png"
+                  src="/pfp.jpg"
                   alt="Profile Picture"
                   className="rounded-lg"
                   width={100}
