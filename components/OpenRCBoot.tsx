@@ -8,13 +8,13 @@ interface Service {
 }
 
 const services: Service[] = [
-  { name: "Loading kernel modules", delay: 200 },
-  { name: "Mounting filesystems", delay: 300 },
-  { name: "Starting system logger", delay: 150 },
-  { name: "Initializing network", delay: 400 },
-  { name: "Starting portfolio service", delay: 250 },
-  { name: "Loading user interface", delay: 350 },
-  { name: "Starting web server", delay: 200 },
+  { name: "Tuning the guitar", delay: 200 },
+  { name: "Reading manga chapters", delay: 300 },
+  { name: "Queuing anime watchlist", delay: 150 },
+  { name: "Fetching GitHub repositories", delay: 400 },
+  { name: "Loading project portfolio", delay: 250 },
+  { name: "Polishing user interface", delay: 350 },
+  { name: "Loading frontend", delay: 200 },
 ];
 
 interface OpenRCBootProps {
@@ -57,9 +57,7 @@ export default function OpenRCBoot({ onComplete }: OpenRCBootProps) {
             return (
               <div key={index} className="flex items-center gap-2">
                 <span className={isCompleted ? "text-slate-500" : "text-neutral-500"}>*</span>
-                <span className="flex-1 text-neutral-300">
-                  {service.name} ...
-                </span>
+                <span className="flex-1 text-neutral-300">{service.name} ...</span>
               </div>
             );
           })}

@@ -18,7 +18,7 @@ export default function Grid() {
   }, []);
 
   return (
-    <div className="pointer-events-none absolute inset-0 transition duration-300 overflow-hidden">
+    <div className="pointer-events-none absolute inset-0 overflow-hidden transition duration-300">
       <div
         className="interactive-grid absolute h-80 w-80"
         style={{
