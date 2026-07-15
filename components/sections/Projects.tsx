@@ -34,7 +34,7 @@ export default function Projects() {
 
   return (
     <section id="projects" className="flex min-h-screen flex-col justify-center py-24">
-      <h2 className="mb-8 text-sm tracking-widest text-(--accent-primary) font-semibold mono text-center lg:text-left">
+      <h2 className="mb-8 text-sm tracking-widest text-(--accent-primary) font-semibold mono text-left">
         PROJECTS
       </h2>
 
