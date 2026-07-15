@@ -68,7 +68,7 @@ export default function Navbar() {
             className="group relative rounded-lg px-3 py-2 text-(--text-secondary) transition-colors hover:text-(--text)"
           >
             <section.icon className="h-5 w-5" />
-            <span className="pointer-events-none absolute top-full mt-4 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md border border-(--text-secondary)/20 bg-(--background-secondary) px-3 py-1.5 text-sm text-(--text-secondary) opacity-0 transition-all duration-200 -translate-y-2 group-hover:translate-y-0 group-hover:opacity-100">
+            <span className="pointer-events-none absolute top-full mt-4 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md border border-(--text-secondary)/20 bg-(--background-secondary)/50 backdrop-blur-sm px-3 py-1.5 text-sm text-(--text-secondary) opacity-0 transition-all duration-200 -translate-y-2 group-hover:translate-y-0 group-hover:opacity-100">
               {section.label}
             </span>
           </a>
@@ -81,7 +81,7 @@ export default function Navbar() {
           className="group relative rounded-lg px-3 py-2 text-(--text-secondary) transition-colors hover:text-(--text)"
         >
           <FiGithub className="h-5 w-5" />
-          <span className="pointer-events-none absolute top-full mt-4 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md border border-(--text-secondary)/20 bg-(--background-secondary) px-3 py-1.5 text-sm text-(--text-secondary) opacity-0 transition-all duration-200 -translate-y-2 group-hover:translate-y-0 group-hover:opacity-100">
+          <span className="pointer-events-none absolute top-full mt-4 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md border border-(--text-secondary)/20 bg-(--background-secondary)/50 backdrop-blur-sm px-3 py-1.5 text-sm text-(--text-secondary) opacity-0 transition-all duration-200 -translate-y-2 group-hover:translate-y-0 group-hover:opacity-100">
             GitHub
           </span>
         </a>
@@ -92,7 +92,7 @@ export default function Navbar() {
           className="group relative rounded-lg px-3 py-2 text-(--text-secondary) transition-colors hover:text-(--text)"
         >
           <FaDiscord className="h-5 w-5" />
-          <span className="pointer-events-none absolute top-full mt-4 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md border border-(--text-secondary)/20 bg-(--background-secondary) px-3 py-1.5 text-sm text-(--text-secondary) opacity-0 transition-all duration-200 -translate-y-2 group-hover:translate-y-0 group-hover:opacity-100">
+          <span className="pointer-events-none absolute top-full mt-4 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md border border-(--text-secondary)/20 bg-(--background-secondary)/50 backdrop-blur-sm px-3 py-1.5 text-sm text-(--text-secondary) opacity-0 transition-all duration-200 -translate-y-2 group-hover:translate-y-0 group-hover:opacity-100">
             Discord
           </span>
         </a>

@@ -3,7 +3,6 @@ import Hero from "@/components/sections/Hero";
 import AboutMe from "@/components/sections/AboutMe";
 import Projects from "@/components/sections/Projects";
 import Footer from "@/components/layout/Footer";
-import FallingRectangles from "@/components/ui/FallingRectangles";
 
 export default function Home() {
   return (
