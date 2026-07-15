@@ -37,7 +37,7 @@ export default function GithubRepo({ name, html_url, stargazers_count, forks_cou
       href={html_url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group relative block w-full rounded-xl border border-(--text-secondary)/20 px-5 py-3 pr-12 transition-all duration-300 hover:border-(--accent-secondary)/40"
+      className="group relative block rounded-xl border border-(--text-secondary)/20 px-5 py-3 pr-12 transition-all duration-300 hover:border-(--accent-secondary)/40"
     >
       <h3 className="text-sm font-semibold text-(--text)">{name}</h3>
       <div className="mt-1.5 flex items-center gap-3 text-xs text-(--text-secondary)">

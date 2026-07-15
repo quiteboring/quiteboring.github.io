@@ -22,7 +22,7 @@ function getAge(): number {
 }
 
 function FieldValue({ value, valueClass }: FieldValueProps) {
-  const arrayCallMatch = value.match(/^(\w+)\((.*)\)$/s);
+  const arrayCallMatch = value.match(/^(\w+)\(([\s\S]*)\)$/);
 
   if (!arrayCallMatch) {
     return <span className={valueClass}>{value}</span>;
@@ -49,21 +49,26 @@ function FieldValue({ value, valueClass }: FieldValueProps) {
 const fields: Field[] = [
   { name: "name", type: "String", value: '"quiteboring"', valueClass: "text-(--syntax-string)" },
   { name: "title", type: "String", value: '"Student"', valueClass: "text-(--syntax-string)" },
-  { name: "openSource", type: "Boolean", value: "true", valueClass: "text-(--syntax-keyword)" },
+  { name: "developer", type: "Boolean", value: "true", valueClass: "text-(--syntax-keyword)" },
   { name: "age", type: "Int", value: String(getAge()), valueClass: "text-(--syntax-number)" },
-  { name: "location", type: "String", value: '"Michigan"', valueClass: "text-(--syntax-string)" },
-  { name: "langs", type: "List<String>", value: 'arrayOf("Kotlin", "Java", "TypeScript")', valueClass: "" },
-  { name: "hobbies", type: "List<String>", value: 'arrayOf("Reading", "Speedcubing", "Guitar")', valueClass: "" },
+  { name: "location", type: "String", value: '"USA"', valueClass: "text-(--syntax-string)" },
+  { name: "langs", type: "String", value: '"Kotlin, Java, TypeScript', valueClass: "text-(--syntax-string)" },
+  { name: "hobbies", type: "String", value: 'Speedcubing & Guitar"', valueClass: "text-(--syntax-string)" },
   { name: "discord", type: "String", value: '"@quiteboring.dev"', valueClass: "text-(--syntax-string)" },
 ];
 
 export default function CodeEditor() {
   return (
     <div className="hidden overflow-hidden rounded-lg border border-(--text-secondary)/20 bg-(--background-tertiary)/50 lg:block w-full">
-      <div className="border-b border-(--text-secondary)/20 px-5 py-3">
-        <span className="text-xs text-(--text-secondary) mono">main.kt</span>
+      <div className="relative flex items-center border-b border-(--text-secondary)/20 px-4 py-3">
+        <div className="flex items-center gap-1.5">
+          <span className="w-3 h-3 rounded-full bg-red-400"></span>
+          <span className="w-3 h-3 rounded-full bg-yellow-400"></span>
+          <span className="w-3 h-3 rounded-full bg-green-400"></span>
+        </div>
+        <span className="absolute left-1/2 -translate-x-1/2 text-xs text-(--text-secondary) mono">main.kt</span>
       </div>
-      <div className="overflow-x-auto p-6 text-sm leading-relaxed">
+      <div className="overflow-x-auto p-4 lg:p-6 text-xs xl:text-sm leading-relaxed">
         <pre className="mono">
           <span className="text-(--syntax-keyword)">data class </span>
           <span className="text-(--syntax-variable)">QuiteBoring</span>
@@ -71,7 +76,7 @@ export default function CodeEditor() {
           {"\n"}
           {fields.map((field, index) => (
             <span key={field.name}>
-              <span className="text-(--text-secondary)">    </span>
+              <span className="text-(--text-secondary)">  </span>
               <span className="text-(--syntax-keyword)">val </span>
               <span className="text-(--syntax-function)">{field.name}</span>
               <span className="text-(--syntax-punctuation)">: </span>

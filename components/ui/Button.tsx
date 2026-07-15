@@ -14,7 +14,7 @@ export default function Button({ href, variant = "primary", icon, children }: Bu
     primary:
       "bg-(--accent-primary) text-(--text) hover:shadow-[0_0_20px_var(--accent-primary)]",
     outline:
-      "border border-(--text-secondary)/30 text-(--text-secondary) hover:border-(--text-secondary) hover:text-(--text) hover:shadow-[0_0_20px_var(--text-secondary)]",
+      "border border-(--text-secondary)/30 text-(--text-secondary) hover:border-(--text-secondary)/60 hover:text-(--text)/80 hover:bg-white/5",
   };
 
   return (

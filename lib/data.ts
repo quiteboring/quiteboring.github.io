@@ -1,9 +1,11 @@
-import { FiHome, FiFolder, FiLink } from "react-icons/fi";
+import { FiHome, FiFolder, FiUser } from "react-icons/fi";
+
+export const discordId = "1441859003708866601";
 
 export const sections = [
   { id: "home", label: "Home", icon: FiHome },
+  { id: "about", label: "About Me", icon: FiUser },
   { id: "projects", label: "Projects", icon: FiFolder },
-
 ];
 
 export const projects = [

@@ -38,7 +38,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <title>quiteboring | Portfolio</title>
-      <body className={`${regular.variable} ${mono.variable} antialiased`}>{children}</body>
+      <body className={`${regular.variable} ${mono.variable} antialiased relative`}>
+        {children}
+      </body>
     </html>
   );
 }

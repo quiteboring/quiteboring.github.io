@@ -33,13 +33,13 @@ export default function Projects() {
   }, []);
 
   return (
-    <section id="projects" className="flex min-h-screen flex-col justify-center">
-      <h2 className="mb-8 text-sm tracking-widest text-(--accent-primary) font-semibold mono">
+    <section id="projects" className="flex min-h-screen flex-col justify-center py-24">
+      <h2 className="mb-8 text-sm tracking-widest text-(--accent-primary) font-semibold mono text-center lg:text-left">
         PROJECTS
       </h2>
 
-      <div className="grid gap-10 items-start md:grid-cols-5">
-        <div className="md:col-span-3">
+      <div className="grid gap-10 items-start lg:grid-cols-5">
+        <div className="lg:col-span-3">
           <div className="space-y-6">
             {projects.map((project) => (
               <ProjectCard key={project.title} {...project} />
@@ -47,10 +47,9 @@ export default function Projects() {
           </div>
         </div>
 
-        <div className="md:col-span-2 rounded-xl border border-(--text-secondary)/20 bg-(--background-secondary)/80 p-5 backdrop-blur-sm">
-          <h3 className="mb-2 text-sm tracking-widest text-(--text-secondary) mono">CODE</h3>
-          <p className="mb-6 text-2xl font-semibold text-(--text)">GitHub</p>
-          <div className="space-y-3">
+        <div className="lg:col-span-2 rounded-xl border border-(--text-secondary)/20 bg-(--background-secondary)/80 p-5 backdrop-blur-sm">
+          <h3 className="mb-2 text-sm tracking-widest text-(--text-secondary) mono text-center lg:text-left">CODE</h3>
+          <div className="mt-5 space-y-3">
             {repos.map((repo) => (
               <GithubRepo
                 key={repo.name}
