@@ -26,7 +26,7 @@ export default function DiscordVerification() {
           type="text"
           placeholder="Enter Discord ID"
           value={inputId}
-          onChange={(e) => setInputId(e.target.value)}
+          onChange={(e) => setInputId(e.target.value.replace(/\D/g, ""))}
           className="flex-1 bg-transparent text-sm outline-none placeholder:text-(--text-secondary)/50"
         />
 
