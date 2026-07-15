@@ -22,6 +22,6 @@ export const projects = [
   {
     title: "SlayerXPOverlayFabric",
     desc: "A Fabric mod for Minecraft that overlays Slayer XP, kills per hour, and quest progress directly on your screen.",
-    tags: ["Kotlin", "Java", "CSS"],
+    tags: ["Kotlin", "Java"],
   }
 ];
