@@ -59,7 +59,7 @@ const fields: Field[] = [
 
 export default function CodeEditor() {
   return (
-    <div className="hidden overflow-hidden rounded-lg border border-(--text-secondary)/20 bg-(--background-tertiary)/50 lg:block w-full">
+    <div className="hidden overflow-hidden rounded-lg border border-(--text-secondary)/20 bg-(--background-secondary)/50 backdrop-blur-sm lg:block w-full">
       <div className="relative flex items-center border-b border-(--text-secondary)/20 px-4 py-3">
         <div className="flex items-center gap-1.5">
           <span className="w-3 h-3 rounded-full bg-red-400"></span>

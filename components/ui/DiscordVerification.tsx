@@ -12,7 +12,7 @@ export default function DiscordVerification() {
   const status = trimmed === "" ? "idle" : trimmed === discordId ? "success" : "error";
 
   return (
-    <div className="mt-6 w-full max-w-sm rounded-lg border border-(--text-secondary)/15 bg-(--background-secondary)/50 p-5">
+    <div className="mt-6 w-full max-w-sm rounded-lg border border-(--text-secondary)/15 bg-(--background-secondary)/50 backdrop-blur-sm p-5">
       <label
         htmlFor="discord-id"
         className="mono mb-3 block text-xs font-semibold tracking-wide text-(--text-secondary)"

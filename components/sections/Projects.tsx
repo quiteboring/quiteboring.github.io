@@ -47,7 +47,7 @@ export default function Projects() {
           </div>
         </div>
 
-        <div className="lg:col-span-2 rounded-xl border border-(--text-secondary)/20 bg-(--background-secondary)/80 p-5 backdrop-blur-sm">
+        <div className="lg:col-span-2 rounded-xl border border-(--text-secondary)/20 bg-(--background-secondary)/50 p-5 backdrop-blur-sm">
           <h3 className="mb-2 text-sm tracking-widest text-(--text-secondary) mono text-center lg:text-left">CODE</h3>
           <div className="mt-5 space-y-3">
             {repos.map((repo) => (
