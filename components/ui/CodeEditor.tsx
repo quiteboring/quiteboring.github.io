@@ -52,7 +52,7 @@ const fields: Field[] = [
   { name: "developer", type: "Boolean", value: "true", valueClass: "text-(--syntax-keyword)" },
   { name: "age", type: "Int", value: String(getAge()), valueClass: "text-(--syntax-number)" },
   { name: "location", type: "String", value: '"USA"', valueClass: "text-(--syntax-string)" },
-  { name: "langs", type: "String", value: '"Kotlin, Java, TypeScript', valueClass: "text-(--syntax-string)" },
+  { name: "langs", type: "String", value: '"Kotlin, Java, TypeScript "', valueClass: "text-(--syntax-string)" },
   { name: "hobbies", type: "String", value: 'Speedcubing & Guitar"', valueClass: "text-(--syntax-string)" },
   { name: "discord", type: "String", value: '"@quiteboring.dev"', valueClass: "text-(--syntax-string)" },
 ];
